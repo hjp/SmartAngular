@@ -12,9 +12,40 @@ import {
   styleUrls: ["./services.component.css"]
 })
 export class ServicesComponent implements OnInit {
+  url = "/assets/vouchers.json";
+
   constructor() {}
 
   ngOnInit() {}
+
+  usingjQueryAjax() {
+    $.ajax({
+      type: "GET",
+      url: this.url,
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      //classic callback pattern
+      success: function success(data: any) {
+        console.log("Data received from jQuery: ", data);
+      },
+      //shortcut of callback pattern
+      error(err: any) {
+        console.log("Error received from jQuery: ", err);
+      }
+    });
+  }
+
+  usingjQueryWithPromise() {
+   
+    $.ajax({
+      type: "GET",
+      url: this.url,
+      contentType: "application/json; charset=utf-8",
+      dataType: "json"
+    })
+    .then(data => console.log("Data received from jQuery: ", data))
+    .catch(err =>  console.log("Error received from jQuery: ", err));
+  }
 
   usingPromises() {
     function doAsyncTask(succeed: boolean): Promise<string> {
