@@ -29,6 +29,10 @@ export class TypesComponent implements OnInit {
 
     numbers[0] = 1;
     //numbers.push("two"); // compile-time error
+    
+    let notSure: any = 4;
+    notSure = "maybe a string instead";
+    notSure = false; // okay, definitely a boolean
 
     var isCustomer: boolean = false;
     var finished = false;
@@ -126,20 +130,10 @@ export class TypesComponent implements OnInit {
     let likeadelegate: void = handleClick();
     //execute it
     likeadelegate;
-
-    let notSure: any = 4;
-    notSure = "maybe a string instead";
-    notSure = false; // okay, definitely a boolean
   }
 
   useEnums() {
     debugger;
-
-    enum VoucherStatus {
-      draft,
-      complete,
-      pending
-    }
 
     enum Happyness {
       happy = 2,
@@ -148,6 +142,12 @@ export class TypesComponent implements OnInit {
     }
 
     let isHappy : Happyness = Happyness.happy;
+
+    enum VoucherStatus {
+      draft,
+      complete,
+      pending
+    }
 
     var status: VoucherStatus;
     status = VoucherStatus.draft;
@@ -338,6 +338,7 @@ export class TypesComponent implements OnInit {
     }
 
     playLotto("Hannes", 3, 12, 45, 48);
+    playLotto("Hugo", 3, 12, 45, 48, 55, 22);
 
     var shop: any = new Array();
     shop.category = new Map();
