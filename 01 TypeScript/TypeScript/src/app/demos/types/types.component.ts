@@ -182,7 +182,7 @@ export class TypesComponent implements OnInit {
 
   useTypings() {
     //using moment
-    let dt = new Date();
+    let dt = new Date(1990,3,2);
     console.log("Using time format: ", moment(dt).format("LTS"));
 
     //using jQuery
@@ -214,7 +214,8 @@ export class TypesComponent implements OnInit {
     }
 
     // array destructuring
-    let [first, second, third] = [8, 4, 100, -5, 20];
+    let arrNbr = [8, 4, 100, -5, 20];
+    let [first, second, third] = arrNbr;
 
     // output: 100, 4, 8
     console.log(third, second, first);
@@ -233,13 +234,13 @@ export class TypesComponent implements OnInit {
       { name: "apples", quantity: 2, price: 3, region: "europe" },
       { name: "bananas", quantity: 0, price: 5, region: "caribean" },
       { name: "cherries", quantity: 5, price: 8, region: "europe" }
-    ];
+    ]; //-> Json Objects from REST call
 
     //remember ECMA Script 5 pattern
     var result = [];
     for (var i = 0; i < fruits.length; i++) {
       var item = fruits[i];
-      if (item.quantity < 6) {
+      if (item.quantity < 5) {
         result.push(item);
       }
     }
@@ -250,31 +251,41 @@ export class TypesComponent implements OnInit {
       fruit.quantity++;
     });
 
-    //find
+    fruits.forEach((item:any)=> {
+      item.quantity++;
+      console.log(item);
+    })
+
+    fruits.forEach( item => item.quantity++)
+
+    //find -> returns first item
     var cherry = fruits.find(function(fruit) {
       return fruit.name === "cherries";
     });
     console.log(cherry);
 
-    //filter
+    //filter -> returns array
     var cheap = fruits.filter(function(item) {
       return item.price < 6;
     });
     console.log(cheap);
 
-    //reduce
+    //reduce: Sample fruit:  { name: "apples", quantity: 2, price: 3, region: "europe" },
+
     var fruitNames = fruits.reduce(function(prevArray, fruit) {
       prevArray.push(fruit.name);
+      //prevArray.push({ name: "apples", quantity: 2})
       return prevArray;
     }, []);
+
     console.log(fruitNames);
 
     //splice
     var dogs = ["whippet", "galgo espanol", "magyar whistler", "magyar agar"];
-    dogs.splice(2, 0, "chart polski");
-    console.log(dogs);
+    dogs.splice(2, 0, "chart polski"); 
+    console.log(dogs); //["whippet", "galgo espanol", "chart polski", "magyar whistler", "magyar agar"]
     dogs.splice(3, 1);
-    console.log(dogs);
+    console.log(dogs); //["whippet", "galgo espanol", "chart polski", "magyar agar"]
   }
 
   //-> C# Dictionary
