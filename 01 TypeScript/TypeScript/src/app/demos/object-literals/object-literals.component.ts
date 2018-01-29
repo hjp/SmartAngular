@@ -12,6 +12,16 @@ export class ObjectLiteralsComponent implements OnInit {
   ngOnInit() {}
 
   objectsBasics() {
+    debugger; 
+
+    var myPerson = new Object();
+    //myPerson.smile = function(){...}
+
+    var otherPerson = <any> {};
+    otherPerson.smile = function(){
+      
+    }
+
     let person: any = { Id: 1, Name: "Alexander" };
     person.walk = () => console.log(`I am ${person.Name} and I'm walking`);
 
