@@ -14,7 +14,7 @@ export class TypesComponent implements OnInit {
   ngOnInit() {}
 
   basicVariables() {
-    debugger;
+    // debugger;
 
     var myname: string = "alex";
 
@@ -25,6 +25,8 @@ export class TypesComponent implements OnInit {
     var rand = Math.random();
 
     var numbers: number[] = [];
+    var myNumArray: Array<number> = new Array();
+
     numbers[0] = 1;
     //numbers.push("two"); // compile-time error
 
@@ -34,7 +36,7 @@ export class TypesComponent implements OnInit {
     //strings
     var dogName: string = "Giro";
     var otherDogName = "Soi";
-    var x = 10;
+    var myString = "ten";
 
     var strings: Array<string> = ["hubert", "Sam"];
     strings.push("Hans");
@@ -46,8 +48,8 @@ export class TypesComponent implements OnInit {
     }
 
     // Not much else we can assign to these variables!
-    let u: undefined = undefined;
-    let n: null = null;
+    var u: undefined = undefined;
+    var n: null = null;
   }
 
   useLetConst() {
@@ -97,7 +99,7 @@ export class TypesComponent implements OnInit {
       //same as above - modern js
       ct = 0;
       for (var char of ts) {
-        if (characters.includes(char)) {
+        if (characters.includes(char)) {  // like C# contains
           ct++;
         }
       }
@@ -115,13 +117,15 @@ export class TypesComponent implements OnInit {
 
     function handleClick(): void {
       var g = "I don't return anything.";
-      console.log(g);
+      console.log(g);      
     }
 
     //let nonsens: void = 10; //Conversion error
     let nonsens: void = undefined;
 
     let likeadelegate: void = handleClick();
+    //execute it
+    likeadelegate;
 
     let notSure: any = 4;
     notSure = "maybe a string instead";
@@ -137,13 +141,21 @@ export class TypesComponent implements OnInit {
       pending
     }
 
-    var n: VoucherStatus;
-    n = VoucherStatus.draft;
-    n = VoucherStatus.complete;
-    //n = VoucherStatus.unfinished; // compile-time error
-    //n = "on the way"; // compile-time error
+    enum Happyness {
+      happy = 2,
+      unhappy = 4,
+      ok = 6
+    }
 
-    if (n === VoucherStatus.complete) {
+    let isHappy : Happyness = Happyness.happy;
+
+    var status: VoucherStatus;
+    status = VoucherStatus.draft;
+    status = VoucherStatus.complete;
+    //status = VoucherStatus.unfinished; // compile-time error
+    //status = "on the way"; // compile-time error
+
+    if (status === VoucherStatus.complete) {
       
     }
 
@@ -153,10 +165,10 @@ export class TypesComponent implements OnInit {
             console.log(`got voucher ${v}: will pay`);
             break;
           case VoucherStatus.draft:
-            console.log(`got voucher ${v}: will save to O365`)
+            console.log(`got voucher ${v}: will save to O365`);
             break;
           case VoucherStatus.pending:
-            console.log(`got voucher ${v}: will call the accountant`)
+            console.log(`got voucher ${v}: will call the accountant`);
             break;
           default:
             console.log("...")
@@ -164,7 +176,7 @@ export class TypesComponent implements OnInit {
       }
     }
 
-    handleVoucher(<Voucher>{ ID: 1, Text: "Media Markt", Amount: 22, Date: new Date() }, n);
+    handleVoucher(<Voucher>{ ID: 1, Text: "Media Markt", Amount: 22, Date: new Date() }, status);
 
   }
 
