@@ -25,6 +25,6 @@ export class DirectivesComponent implements OnInit {
   }
 
   getClass(){
-    return this.cssclass;
+    return "my-" + this.cssclass;
   }
 }
