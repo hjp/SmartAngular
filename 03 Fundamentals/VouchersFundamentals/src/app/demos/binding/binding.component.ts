@@ -10,9 +10,9 @@ export class BindingComponent implements OnInit {
 
   hide: boolean = false;
   
-  person = {id: 1, name: "Alex", age: 47, imgUrl: "", gender:'male'};
+  person = {id: 1, name: "Alex", age: 47, imgUrl: "https://static.kino.de/wp-content/uploads/2016/08/Homer-rcm630x0u.jpg", gender:'male'};
   
-  persons = [
+  persons : Person[] = [
     {name: "Heinz", gender: "male"}, 
     {name: "Brunhilde", gender: "female"},
     {name: "Susi", gender: "female"}];
@@ -24,6 +24,7 @@ export class BindingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   toggleDisplay(){

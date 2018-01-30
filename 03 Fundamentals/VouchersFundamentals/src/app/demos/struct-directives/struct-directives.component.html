@@ -32,13 +32,17 @@
     <input type="checkbox" [(ngModel)]="showDivOne">
     <label>Please check to change value for "showDivOne":</label>
     <br/> Current value for "showDivOne": {{showDivOne}}
-    <div *ngIf="showDivOne; else falsyTemplate">
+
+    <div *ngIf="showDivOne; else ngTemplate">
         <h5>Div 1</h5>
     </div>
-
-    <ng-template #falsyTemplate>
+    <div *ngIf="!showDivOne">
+        <h5>Not Div 1</h5>
+    </div>
+    <ng-template #ngTemplate>
         <h5>Not Div 1</h5>
     </ng-template>
+    
 </div>
 
 <div class="section">

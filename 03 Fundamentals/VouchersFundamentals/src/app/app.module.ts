@@ -66,7 +66,7 @@ registerLocaleData(localeDe)
     ContentProjectionComponent,
     EmployeeComponent,
     NavbarComponent,
-    MatchHeightDirective    
+    MatchHeightDirective
   ],
   imports: [
     FormsModule,

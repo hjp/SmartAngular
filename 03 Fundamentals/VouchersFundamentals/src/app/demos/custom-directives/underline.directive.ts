@@ -1,4 +1,4 @@
-import { Directive, HostListener, Renderer, ElementRef, Input } from '@angular/core';
+import { Directive,  Renderer, ElementRef, Input, HostListener } from '@angular/core';
 
 @Directive({
     selector: '[doUnderline]'
