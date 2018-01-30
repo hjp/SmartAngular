@@ -11,10 +11,10 @@
           </tr>
       </thead>
         <tbody>
-          <tr *ngFor="let v of accounts" (click)="showAccount(v.ID)">
+          <tr *ngFor="let v of accounts">
             <td>{{v.ID}}</td>
             <td>{{v.Name}}</td>
-            <td><input type="checkbox" [checked]="v.Expense"></td>
+            <td><span *ngIf="v.Expense">✔</span></td>
             <td>{{v.Balance | currency:'EUR':true}} </td>
             <td>{{v.Created | date:'shortDate'}}</td>
             <td><a [routerLink]="[ '/accounts', v.ID ]">Edit</a></td>
