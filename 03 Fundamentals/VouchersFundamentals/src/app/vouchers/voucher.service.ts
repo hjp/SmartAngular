@@ -5,17 +5,17 @@ import { Voucher } from "../shared/index";
 
 @Injectable()
 export class VouchersService {
-    constructor(private http: HttpClient) { }
+    constructor(private httpClient: HttpClient) { }
 
     vouchers = null;
 
     getVouchers() : Promise<Voucher[]> {
-        return this.http.get<Voucher[]>('/assets/vouchers.json').toPromise();          
+        return this.httpClient.get<Voucher[]>('/assets/vouchers.json').toPromise();          
     }
     
     getVoucher(id: number) : Promise<Voucher> {
         return new Promise<Voucher>((resolve, reject)=>{
-            this.http.get('/assets/vouchers.json').toPromise()
+            this.httpClient.get('/assets/vouchers.json').toPromise()
             .then((data: Voucher[])=>{
                 var v = data.filter((item: Voucher)=>{
                     return item.ID == id;

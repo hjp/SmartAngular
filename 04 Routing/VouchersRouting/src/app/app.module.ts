@@ -55,9 +55,10 @@ registerLocaleData(localeDe)
     RouterModule,    
     AppRoutingModule
   ],
-  providers: [VouchersService,
-    {provide: LOCALE_ID, useValue: "de-DE"}
-    ,RouteGuard
+  providers: [
+    {provide: LOCALE_ID, useValue: "de-DE"},
+    VouchersService,    
+    RouteGuard
     ],
   bootstrap: [AppComponent]
 })
