@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AccountsService } from './account.service'
+import { Account } from "../shared/index";
 
 @Component({
   selector: 'app-accounts',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountsComponent implements OnInit {
 
-  constructor() { }
+  accounts: Account[];
+  constructor(private as: AccountsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.as.getAccounts().then(data => this.accounts = data);
+
   }
 
 }

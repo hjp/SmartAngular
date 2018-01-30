@@ -35,6 +35,7 @@ import { PersonEditComponent } from './demos/nested/person-edit/person-edit.comp
 
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
+import { AccountsService } from './accounts/account.service';
 registerLocaleData(localeDe)
 
 
@@ -75,8 +76,10 @@ registerLocaleData(localeDe)
     RouterModule,
     AppRoutingModule
   ],
-  providers: [VouchersService,
-  // {provide: LOCALE_ID, useValue: "de-DE"}
+  providers: [
+    VouchersService,
+    {provide: LOCALE_ID, useValue: "de-DE"},
+    AccountsService
   ],
   bootstrap: [AppComponent]
 })

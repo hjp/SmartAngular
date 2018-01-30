@@ -2,36 +2,50 @@
     {
         "ID": 1,
         "Name": "Unclassified",
-        "Expense": true
+        "Expense": true,
+        "Balance": 42,
+        "Created": "2018-01-30"
     },
     {
         "ID": 2,
         "Name": "Car Maintenance",
-        "Expense": true
+        "Expense": true,
+        "Balance": 42,
+        "Created": "2018-01-30"
     },
     {
         "ID": 3,
         "Name": "Development",
-        "Expense": false
+        "Expense": false,
+        "Balance": 42,
+        "Created": "2018-01-30"
     },
     {
         "ID": 4,
         "Name": "Consulting",
-        "Expense": false
+        "Expense": false,
+        "Balance": 42,
+        "Created": "2018-01-30"
     },
     {
         "ID": 5,
         "Name": "Training",
-        "Expense": false
+        "Expense": false,
+        "Balance": 23,
+        "Created": "-1166-01-30"
     },
     {
         "ID": 6,
         "Name": "Software",
-        "Expense": true
+        "Expense": true,
+        "Balance": 42,
+        "Created": "2018-01-30"
     },
     {
         "ID": 7,
         "Name": "Hosting & Internet",
-        "Expense": true
+        "Expense": true,
+        "Balance": 42,
+        "Created": "2018-01-30"
     }
 ]
