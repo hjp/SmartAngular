@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-demos',
   templateUrl: './demos.component.html',
-  styleUrls: ['./demos.component.css'],
+  styleUrls: ['./demos.component.scss'],
   providers: [DemoService]
 })
 export class DemosComponent implements OnInit {

@@ -48,6 +48,7 @@ export class ServicesComponent implements OnInit {
   }
 
   usingPromises() {
+
     function doAsyncTask(succeed: boolean): Promise<string> {
       return new Promise<string>((resolve, reject) => {
         setTimeout(() => {
@@ -55,7 +56,7 @@ export class ServicesComponent implements OnInit {
           if (succeed) {
             resolve(JSON.stringify({ Id: 1, Person: "Hugo Wolf" }));
           } else {
-            reject("Outcome: Promise rejected");
+            reject("Big Error: Promise rejected");
           }
         }, 1000);
       });
@@ -69,7 +70,7 @@ export class ServicesComponent implements OnInit {
   }
 
   usingFetch() {
-    fetch("./assets/vouchers.json").then(response => {
+    fetch(this.url).then(response => {
       console.log("Response received from fetch", response);
       console.log("Promise received from fetch", response.json());
     });
