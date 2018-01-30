@@ -9,17 +9,15 @@ export class VouchersService {
 
     vouchers = null;
 
-    getVouchers() : Promise<any> {
-        return this.http.get('/assets/vouchers.json').toPromise();          
+    getVouchers() : Promise<Voucher[]> {
+        return this.http.get<Voucher[]>('/assets/vouchers.json').toPromise();          
     }
     
-    getVoucher(id: number) : Promise<any> {
+    getVoucher(id: number) : Promise<Voucher> {
         return new Promise<Voucher>((resolve, reject)=>{
             this.http.get('/assets/vouchers.json').toPromise()
             .then((data: Voucher[])=>{
-                var v = data.filter((item)=>{
-                    return item.ID == id;
-                 })
+                var v = data.filter((item: Voucher) => item.ID == id)
                  resolve(v[0]);
             })
             .catch(err=>reject(err));
