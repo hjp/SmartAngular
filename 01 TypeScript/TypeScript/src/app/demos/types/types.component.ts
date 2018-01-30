@@ -14,7 +14,7 @@ export class TypesComponent implements OnInit {
   ngOnInit() {}
 
   basicVariables() {
-    debugger;
+    // debugger;
 
     var myname: string = "alex";
 
@@ -23,6 +23,7 @@ export class TypesComponent implements OnInit {
     var weight: number = 83.12;
     var dogWeight = 25.4;
     var rand = Math.random();
+
 
     var numbers: number[] = [];
     numbers[0] = 1;
@@ -34,7 +35,7 @@ export class TypesComponent implements OnInit {
     //strings
     var dogName: string = "Giro";
     var otherDogName = "Soi";
-    var x = 10;
+    var x = "10";
 
     var strings: Array<string> = ["hubert", "Sam"];
     strings.push("Hans");
@@ -137,13 +138,13 @@ export class TypesComponent implements OnInit {
       pending
     }
 
-    var n: VoucherStatus;
-    n = VoucherStatus.draft;
-    n = VoucherStatus.complete;
+    var status: VoucherStatus;
+    status = VoucherStatus.draft;
+    status = VoucherStatus.complete;
     //n = VoucherStatus.unfinished; // compile-time error
     //n = "on the way"; // compile-time error
 
-    if (n === VoucherStatus.complete) {
+    if (status === VoucherStatus.complete) {
       
     }
 
@@ -164,7 +165,7 @@ export class TypesComponent implements OnInit {
       }
     }
 
-    handleVoucher(<Voucher>{ ID: 1, Text: "Media Markt", Amount: 22, Date: new Date() }, n);
+    handleVoucher(<Voucher>{ ID: 1, Text: "Media Markt", Amount: 22, Date: new Date() }, status);
 
   }
 

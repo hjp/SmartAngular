@@ -15,3 +15,17 @@ a{
     background-color: fuchsia;
     margin-top: 30px;
 }
+
+.my-big{
+    height: 300px;
+    width: 100%;
+    background-color: #fed;
+    margin-top: 30px;
+}
+
+.my-small{    
+    height: 100px;
+    width: 100%;
+    background-color: #123;
+    margin-top: 30px;
+}

@@ -12,9 +12,42 @@ import {
   styleUrls: ["./services.component.css"]
 })
 export class ServicesComponent implements OnInit {
-  constructor() {}
+  url = "/assets/vouchers.json";
 
-  ngOnInit() {}
+  constructor() { }
+
+  ngOnInit() { }
+
+  usingJqueryAjax() {
+    // var url = "http://voucherservice.integrations.at";
+
+
+    $.ajax({
+      type: "GET",
+      url: this.url,
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success(data: any) {
+        console.log("from jQuery: ", data)
+      },
+      error(err: any) {
+        console.log("Error", err)
+      }
+    });
+  }
+
+  usingJqueryWithPromise() {
+    $.ajax({
+      type: "GET",
+      url: this.url,
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+
+    })
+      .then(data => console.log("from jQuery: ", data))
+      .catch(err => console.log("Error", err));
+
+  }
 
   usingPromises() {
     function doAsyncTask(succeed: boolean): Promise<string> {
@@ -70,10 +103,10 @@ export class ServicesComponent implements OnInit {
       method: "post",
       body: JSON.stringify(body)
     })
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
-      .then(function(data) {
+      .then(function (data) {
         console.log("Created Gist");
       });
   }
