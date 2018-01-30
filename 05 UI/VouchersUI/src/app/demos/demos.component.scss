@@ -16,6 +16,25 @@ a {
 }
 
 
-@mixin section-header{
-    
+@mixin big-font{
+    font-size: 18px    
+}
+
+@mixin box{
+    padding: 10px;
+    margin: 10px;
+}
+
+.sectionPanelBlue{
+    @include big-font();
+    @include box();
+    background-color: lightblue;
+}
+
+@mixin grid($flex) {
+    @if $flex {
+        @include flex;
+    } @else {
+        display: block;
+    }
 }
