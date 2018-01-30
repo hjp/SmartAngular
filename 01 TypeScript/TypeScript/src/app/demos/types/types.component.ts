@@ -26,8 +26,14 @@ export class TypesComponent implements OnInit {
 
 
     var numbers: number[] = [];
+    var myNumArray: Array<number> = new Array();
+
     numbers[0] = 1;
     //numbers.push("two"); // compile-time error
+    
+    let notSure: any = 4;
+    notSure = "maybe a string instead";
+    notSure = false; // okay, definitely a boolean
 
     var isCustomer: boolean = false;
     var finished = false;
@@ -35,7 +41,7 @@ export class TypesComponent implements OnInit {
     //strings
     var dogName: string = "Giro";
     var otherDogName = "Soi";
-    var x = "10";
+    var myString = "ten";
 
     var strings: Array<string> = ["hubert", "Sam"];
     strings.push("Hans");
@@ -47,8 +53,8 @@ export class TypesComponent implements OnInit {
     }
 
     // Not much else we can assign to these variables!
-    let u: undefined = undefined;
-    let n: null = null;
+    var u: undefined = undefined;
+    var n: null = null;
   }
 
   useLetConst() {
@@ -98,7 +104,7 @@ export class TypesComponent implements OnInit {
       //same as above - modern js
       ct = 0;
       for (var char of ts) {
-        if (characters.includes(char)) {
+        if (characters.includes(char)) {  // like C# contains
           ct++;
         }
       }
@@ -116,21 +122,27 @@ export class TypesComponent implements OnInit {
 
     function handleClick(): void {
       var g = "I don't return anything.";
-      console.log(g);
+      console.log(g);      
     }
 
     //let nonsens: void = 10; //Conversion error
     let nonsens: void = undefined;
 
     let likeadelegate: void = handleClick();
-
-    let notSure: any = 4;
-    notSure = "maybe a string instead";
-    notSure = false; // okay, definitely a boolean
+    //execute it
+    likeadelegate;
   }
 
   useEnums() {
     debugger;
+
+    enum Happyness {
+      happy = 2,
+      unhappy = 4,
+      ok = 6
+    }
+
+    let isHappy : Happyness = Happyness.happy;
 
     enum VoucherStatus {
       draft,
@@ -141,8 +153,8 @@ export class TypesComponent implements OnInit {
     var status: VoucherStatus;
     status = VoucherStatus.draft;
     status = VoucherStatus.complete;
-    //n = VoucherStatus.unfinished; // compile-time error
-    //n = "on the way"; // compile-time error
+    //status = VoucherStatus.unfinished; // compile-time error
+    //status = "on the way"; // compile-time error
 
     if (status === VoucherStatus.complete) {
       
@@ -154,10 +166,10 @@ export class TypesComponent implements OnInit {
             console.log(`got voucher ${v}: will pay`);
             break;
           case VoucherStatus.draft:
-            console.log(`got voucher ${v}: will save to O365`)
+            console.log(`got voucher ${v}: will save to O365`);
             break;
           case VoucherStatus.pending:
-            console.log(`got voucher ${v}: will call the accountant`)
+            console.log(`got voucher ${v}: will call the accountant`);
             break;
           default:
             console.log("...")
@@ -171,7 +183,7 @@ export class TypesComponent implements OnInit {
 
   useTypings() {
     //using moment
-    let dt = new Date();
+    let dt = new Date(1990,3,2);
     console.log("Using time format: ", moment(dt).format("LTS"));
 
     //using jQuery
@@ -203,7 +215,8 @@ export class TypesComponent implements OnInit {
     }
 
     // array destructuring
-    let [first, second, third] = [8, 4, 100, -5, 20];
+    let arrNbr = [8, 4, 100, -5, 20];
+    let [first, second, third] = arrNbr;
 
     // output: 100, 4, 8
     console.log(third, second, first);
@@ -222,13 +235,13 @@ export class TypesComponent implements OnInit {
       { name: "apples", quantity: 2, price: 3, region: "europe" },
       { name: "bananas", quantity: 0, price: 5, region: "caribean" },
       { name: "cherries", quantity: 5, price: 8, region: "europe" }
-    ];
+    ]; //-> Json Objects from REST call
 
     //remember ECMA Script 5 pattern
     var result = [];
     for (var i = 0; i < fruits.length; i++) {
       var item = fruits[i];
-      if (item.quantity < 6) {
+      if (item.quantity < 5) {
         result.push(item);
       }
     }
@@ -239,31 +252,41 @@ export class TypesComponent implements OnInit {
       fruit.quantity++;
     });
 
-    //find
+    fruits.forEach((item:any)=> {
+      item.quantity++;
+      console.log(item);
+    })
+
+    fruits.forEach( item => item.quantity++)
+
+    //find -> returns first item
     var cherry = fruits.find(function(fruit) {
       return fruit.name === "cherries";
     });
     console.log(cherry);
 
-    //filter
+    //filter -> returns array
     var cheap = fruits.filter(function(item) {
       return item.price < 6;
     });
     console.log(cheap);
 
-    //reduce
+    //reduce: Sample fruit:  { name: "apples", quantity: 2, price: 3, region: "europe" },
+
     var fruitNames = fruits.reduce(function(prevArray, fruit) {
       prevArray.push(fruit.name);
+      //prevArray.push({ name: "apples", quantity: 2})
       return prevArray;
     }, []);
+
     console.log(fruitNames);
 
     //splice
     var dogs = ["whippet", "galgo espanol", "magyar whistler", "magyar agar"];
-    dogs.splice(2, 0, "chart polski");
-    console.log(dogs);
+    dogs.splice(2, 0, "chart polski"); 
+    console.log(dogs); //["whippet", "galgo espanol", "chart polski", "magyar whistler", "magyar agar"]
     dogs.splice(3, 1);
-    console.log(dogs);
+    console.log(dogs); //["whippet", "galgo espanol", "chart polski", "magyar agar"]
   }
 
   //-> C# Dictionary
@@ -316,6 +339,7 @@ export class TypesComponent implements OnInit {
     }
 
     playLotto("Hannes", 3, 12, 45, 48);
+    playLotto("Hugo", 3, 12, 45, 48, 55, 22);
 
     var shop: any = new Array();
     shop.category = new Map();

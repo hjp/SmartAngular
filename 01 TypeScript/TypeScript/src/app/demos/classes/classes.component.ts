@@ -211,7 +211,7 @@ export class ClassesComponent implements OnInit {
       
       constructor(public scale: number) { } 
       
-      static origin: ICoordinate = { x: 0, y: 0 };
+      static origin: ICoordinate = <ICoordinate> { x: 0, y: 0, z: 0 };
 
       calculateDistanceFromOrigin(point: { x: number; y: number; }) {
         var xDist = (point.x - Grid.origin.x);

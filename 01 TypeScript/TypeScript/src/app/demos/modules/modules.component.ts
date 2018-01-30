@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { MathFunctions } from "./math.functions";
 import { Calculator } from "./currency.functions";
-
+import { MathFunctions } from "./math.functions";
 
 @Component({
   selector: "app-modules",
@@ -11,7 +10,8 @@ import { Calculator } from "./currency.functions";
 export class ModulesComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   useModule() {
     var sqr = MathFunctions.square(3);
