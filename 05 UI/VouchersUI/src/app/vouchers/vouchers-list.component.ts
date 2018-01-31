@@ -20,6 +20,6 @@ export class VouchersListComponent implements OnInit {
   }
 
   showVoucher(id: number){
-    this.router.navigate(['/voucher/' + id]);
+    this.router.navigate(['/vouchers/' + id]);
   }
 }

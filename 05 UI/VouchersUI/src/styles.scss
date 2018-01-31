@@ -1,6 +1,8 @@
-$dark-brown: #797474;
-$medium-brown: #ADA0A0;
-$occa: #F2F2F2;
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+$cmdBackground: #797474;
+$sectionBorder: #ADA0A0;
+$spcaerBackground: #F2F2F2;
 
 .spacer{
     margin: 10px 0px;
@@ -13,30 +15,30 @@ $occa: #F2F2F2;
 .section{
     margin: 10px 0px 10px 0px;
     padding: 15px 10px;    
-    border: 1px solid $medium-brown;
-    background-color: $occa;
+    border: 1px solid $sectionBorder;
+    background-color: $spcaerBackground;
 }
 
 body{
     padding: 10px;
-    background-color:  $occa;
+    background-color:  $spcaerBackground;
 }
     
 .sidebar-module, .navbar-inverse{
-    background-color: $dark-brown;
+    background-color: $cmdBackground;
 }
 
 .cmdPanel{
     padding: 10px 10px;  
     color: white;
-    background-color: $dark-brown;
+    background-color: $cmdBackground;
 }
 
 .cmdPanelSmall{
     padding: 5px;
     margin: 10px 0px;
     color: white;
-    background-color: $dark-brown;
+    background-color: $cmdBackground;
 }
 
 .rightCell{
@@ -48,18 +50,18 @@ body{
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px;
-    background-color:  $occa;
+    background-color:  $spcaerBackground;
 }
 
 .theme-green .bs-datepicker-head {
-    background-color: $dark-brown;
+    background-color: $cmdBackground;
 }
 
 .theme-green .bs-datepicker-body table td.week span {
-    color:  $dark-brown;
+    color:  $cmdBackground;
 }
 
 .theme-green .bs-datepicker-body table td span.selected, .theme-green .bs-datepicker-body table td.selected span, .theme-green .bs-datepicker-body table td span[class*="select-"]:after, .theme-green .bs-datepicker-body table td[class*="select-"] span:after {
-    background-color: $dark-brown;
+    background-color: $cmdBackground;
 }
 

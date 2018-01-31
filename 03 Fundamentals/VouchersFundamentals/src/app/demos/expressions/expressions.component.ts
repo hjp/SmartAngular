@@ -9,6 +9,10 @@ export class ExpressionsComponent implements OnInit {
 
   title: string = "Expressions & Interpolation";
 
+  nbr: number  = 10;
+
+  showIt: boolean = false;
+
   constructor() { }
 
   ngOnInit() {

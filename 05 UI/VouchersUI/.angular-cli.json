@@ -25,6 +25,11 @@
         "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
         "styles.scss"
       ],
+      "stylePreprocessorOptions": {
+         "includePaths": [
+           "global-scss"
+         ]
+      },
       "scripts": [
         "../node_modules/moment/min/moment.min.js",
         "../node_modules/jquery/dist/jquery.min.js",
