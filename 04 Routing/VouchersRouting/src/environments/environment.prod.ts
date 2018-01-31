@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  authEnabled: true,
+  vouchersAPI: '/assets/vouchers.json'
 };
