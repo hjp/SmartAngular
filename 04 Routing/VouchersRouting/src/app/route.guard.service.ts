@@ -13,11 +13,11 @@ import {
   @Injectable()
   export class RouteGuard implements CanActivate, CanActivateChild {
 
-    allow: boolean = !environment.authEnabled;
+    allowAccess: boolean = !environment.authEnabled;
     constructor(private router: Router) {}
   
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if(this.allow){
+      if(this.allowAccess){
         return true;
       }
       else{

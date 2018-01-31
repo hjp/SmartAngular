@@ -21,7 +21,7 @@ export class MaterialTableComponent implements OnInit {
     this.http.get('./assets/vouchers.json').toPromise().then(data => {
       this.vouchers = data.json();
       console.log(this.vouchers)
-      this.dataSource = new MatTableDataSource(this.vouchers);
+      this.dataSource = new MatTableDataSource(data.json());
     })    
   }  
 
