@@ -16,6 +16,7 @@ import { VoucherComponent } from './vouchers/voucher/voucher.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule, ViewChild } from '@angular/core';
+import { AccountComponent } from './accounts/account/account.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -44,6 +45,9 @@ const appRoutes: Routes = [
     { path: 'accounts',
       component: AccountsComponent,
       data: { title: 'Accounts' }
+    },
+    { path: 'accounts/:id',
+      component: AccountComponent
     }
   ];
 

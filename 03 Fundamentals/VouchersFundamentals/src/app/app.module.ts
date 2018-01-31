@@ -36,6 +36,7 @@ import { PersonEditComponent } from './demos/nested/person-edit/person-edit.comp
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import { AccountsService } from './accounts/account.service';
+import { AccountComponent } from './accounts/account/account.component';
 registerLocaleData(localeDe)
 
 
@@ -67,7 +68,8 @@ registerLocaleData(localeDe)
     ContentProjectionComponent,
     EmployeeComponent,
     NavbarComponent,
-    MatchHeightDirective    
+    MatchHeightDirective,
+    AccountComponent    
   ],
   imports: [
     FormsModule,
